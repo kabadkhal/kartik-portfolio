@@ -25,7 +25,9 @@
    RESET
 ========================================================= */
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -33,19 +35,33 @@
 
 
 html {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   scroll-behavior: smooth;
-
   scroll-padding-top: 90px;
+  overflow-x: hidden;
 }
 
 
 body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   background: var(--bg);
-
   color: var(--text);
-
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
 
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 
@@ -74,7 +90,13 @@ button {
 ========================================================= */
 
 .portfolio {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
 
   background:
     radial-gradient(
@@ -284,6 +306,8 @@ button {
 
 .section {
   width: min(1200px, 88%);
+  max-width: 100%;
+  min-width: 0;
 
   margin: 0 auto;
 
@@ -360,11 +384,14 @@ button {
 ========================================================= */
 
 .hero {
+  width: min(1200px, 88%);
+  max-width: 1200px;
+  min-width: 0;
   min-height: 100vh;
 
   display: grid;
 
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 
   align-items: center;
 
@@ -661,6 +688,8 @@ button {
 
 .hero-visual {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
 }
 
 
@@ -864,7 +893,7 @@ button {
 
   letter-spacing: -2.5px;
 
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 
@@ -969,7 +998,7 @@ button {
 
   justify-content: center;
 
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 
   color: var(--accent);
 
@@ -1201,24 +1230,26 @@ button {
 .projects-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  gap: 22px;
+  gap: 18px;
 
-  margin-top: 55px;
+  margin-top: 45px;
 }
 
 
 .project-card {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
 
-  min-height: 500px;
+  min-height: 410px;
 
   display: flex;
 
   flex-direction: column;
 
-  padding: 28px;
+  padding: 22px;
 
   border: 1px solid var(--border);
 
@@ -1309,9 +1340,9 @@ button {
 /* Project icon */
 
 .project-icon {
-  width: 58px;
+  width: 50px;
 
-  height: 58px;
+  height: 50px;
 
   display: flex;
 
@@ -1351,20 +1382,20 @@ button {
 .project-card h3 {
   font-family: "Sora", sans-serif;
 
-  font-size: 21px;
+  font-size: 18px;
 
   line-height: 1.35;
 
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 
 .project-card > p {
   color: var(--muted);
 
-  font-size: 13px;
+  font-size: 12px;
 
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 
@@ -1373,14 +1404,14 @@ button {
 
   flex-wrap: wrap;
 
-  gap: 8px;
+  gap: 6px;
 
-  margin-top: 25px;
+  margin-top: 18px;
 }
 
 
 .project-tags span {
-  padding: 6px 10px;
+  padding: 5px 8px;
 
   border: 1px solid rgba(255, 255, 255, 0.07);
 
@@ -1388,7 +1419,9 @@ button {
 
   color: #9ba6ad;
 
-  font-size: 10px;
+  font-size: 9px;
+
+  line-height: 1.2;
 
   transition:
     color 0.3s ease,
@@ -1406,11 +1439,11 @@ button {
 
   align-items: center;
 
-  gap: 18px;
+  gap: 15px;
 
   margin-top: auto;
 
-  padding-top: 30px;
+  padding-top: 22px;
 }
 
 
@@ -1673,109 +1706,303 @@ footer a:hover {
 ========================================================= */
 
 @media (max-width: 800px) {
-
-  .navbar {
-    padding: 0 5%;
+  html,
+  body,
+  #root,
+  .portfolio {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;
   }
 
+  .navbar {
+    width: 100%;
+    max-width: 100%;
+    height: 80px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
 
   .nav-links {
     position: fixed;
-
     top: 80px;
-
     left: 0;
-
     right: 0;
-
+    width: 100%;
+    max-width: 100%;
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
-
     gap: 0;
-
-    padding: 20px 6% 30px;
-
-    background: rgba(7, 12, 15, 0.96);
-
+    padding: 20px 22px 30px;
+    background: rgba(7, 12, 15, 0.97);
     backdrop-filter: blur(20px);
-
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
-
     opacity: 0;
-
     visibility: hidden;
-
     transform: translateY(-10px);
-
     transition:
       opacity 0.3s ease,
       transform 0.3s ease,
       visibility 0.3s ease;
   }
 
-
   .nav-links.active {
     opacity: 1;
-
     visibility: visible;
-
     transform: translateY(0);
   }
 
-
   .nav-links a {
     width: 100%;
-
     padding: 15px 0;
-
     font-size: 15px;
   }
-
 
   .nav-links a::after {
     display: none;
   }
 
-
   .mobile-menu {
     display: flex;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    flex-shrink: 0;
   }
-
 
   .nav-button {
     display: none;
   }
 
+  .section,
+  .hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
 
   .section {
-    width: 90%;
-
-    padding: 90px 0;
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
-
 
   .hero {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 45px;
     padding-top: 120px;
+    padding-bottom: 80px;
   }
 
+  .hero-content,
+  .hero-visual,
+  .terminal {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hero-content {
+    overflow-wrap: anywhere;
+  }
+
+  .hero-visual {
+    margin: 0;
+    overflow: visible;
+  }
 
   .hero h1 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     letter-spacing: -2.5px;
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
 
+  .hero-description {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .terminal {
+    box-sizing: border-box;
+  }
+
+  .terminal-body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 22px;
+    font-size: 11px;
+    line-height: 1.8;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .terminal-header {
+    width: 100%;
+    max-width: 100%;
+    height: 44px;
+  }
+
+  .terminal-header .dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .terminal-title {
+    min-width: 0;
+    max-width: calc(100% - 75px);
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .about {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 45px;
+  }
+
+  .about-content,
+  .about-cards {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .about-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-card {
+    min-width: 0;
+    min-height: auto;
+  }
 
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
+  .skill-card {
+    min-width: 0;
+    min-height: 90px;
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .skill-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 11px;
+  }
+
+  .skill-info {
+    min-width: 0;
+  }
+
+  .skill-info h3 {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .skill-info p {
+    font-size: 9px;
+  }
+
+  .skill-arrow {
+    display: none;
+  }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
 
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .project-card h3,
+  .project-card > p {
+    overflow-wrap: anywhere;
+  }
+
+  .project-category {
+    max-width: 50%;
+    font-size: 8px;
+    overflow-wrap: anywhere;
+  }
+
+  .timeline {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .timeline-item {
+    min-width: 0;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .timeline-item h3,
+  .timeline-item p {
+    overflow-wrap: anywhere;
+  }
+
+  footer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 30px 22px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
 }
 
 
@@ -1784,16 +2011,32 @@ footer a:hover {
 ========================================================= */
 
 @media (max-width: 600px) {
+  .navbar {
+    height: 72px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .nav-links {
+    top: 72px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 
   .logo {
     font-size: 27px;
   }
 
 
+  .section,
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
   .hero {
     gap: 45px;
-
-    padding-top: 110px;
+    padding-top: 105px;
   }
 
 
@@ -1811,8 +2054,7 @@ footer a:hover {
 
   .hero-buttons {
     flex-direction: column;
-
-    align-items: flex-start;
+    align-items: stretch;
   }
 
 
@@ -1832,7 +2074,9 @@ footer a:hover {
 
     font-size: 11px;
 
+    max-width: 100%;
     overflow-x: auto;
+    overflow-wrap: anywhere;
   }
 
 
@@ -1962,4 +2206,84 @@ footer a:hover {
     transition-duration: 0.01ms !important;
   }
 
+}
+
+
+/* =========================================================
+   FINAL MOBILE WIDTH SAFETY
+   Prevents any child from creating a right-side blank/overflow area.
+========================================================= */
+
+@media (max-width: 800px) {
+  html,
+  body,
+  #root,
+  .portfolio,
+  main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .portfolio > * {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero.section,
+  .section.about,
+  .section.skills,
+  .section.projects,
+  .section.experience,
+  .section.contact {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hero.section {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .hero-visual,
+  .terminal,
+  .about-content,
+  .about-cards,
+  .skills-grid,
+  .projects-grid,
+  .timeline {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .terminal {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .section,
+  .hero {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .navbar {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .terminal-body {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 }
