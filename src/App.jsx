@@ -726,13 +726,33 @@ function App() {
 
           variants={staggerContainer}
         >
+          {/* =====================================================
+                PROJECT 01 — JOBTRACK
+            ===================================================== */}
+
+            <Project
+              number="01"
+              category="FULL-STACK / NEXT.JS"
+              title="JobTrack — Job Application Tracking Platform"
+              description="Built and deployed a full-stack job application tracking platform using Next.js, React, TypeScript and MongoDB. Implemented authentication, job application tracking, status pipelines, dashboard statistics and a responsive interface for managing the job-search workflow."
+              tags={[
+                "Next.js",
+                "React",
+                "TypeScript",
+                "MongoDB",
+                "Authentication",
+                "Vercel",
+              ]}
+              github="https://github.com/kabadkhal/JobTrack"
+              live="https://job-track-flax-seven.vercel.app/"
+            />
 
           {/* =====================================================
               PROJECT 01 — INFRAFLOW
           ===================================================== */}
 
           <Project
-            number="01"
+            number="02"
 
             category="DEVOPS / CI-CD"
 
@@ -760,7 +780,7 @@ function App() {
           ===================================================== */}
 
           <Project
-            number="02"
+            number="03"
 
             category="KUBERNETES / CI-CD"
 
@@ -786,7 +806,7 @@ function App() {
           ===================================================== */}
 
           <Project
-            number="03"
+            number="04"
 
             category="AWS / DEVOPS"
 
@@ -812,7 +832,7 @@ function App() {
           ===================================================== */}
 
           <Project
-            number="04"
+            number="05"
 
             category="AWS / CLOUD"
 
@@ -1120,6 +1140,7 @@ function Project({
   description,
   tags,
   github,
+  live,
 }) {
   return (
     <motion.article
