@@ -1173,21 +1173,11 @@ function Project({
 
       <div className="project-icon">
 
-        {number === "01" && (
-          <Container size={28} />
-        )}
-
-        {number === "02" && (
-          <Container size={28} />
-        )}
-
-        {number === "03" && (
-          <Server size={28} />
-        )}
-
-        {number === "04" && (
-          <Cloud size={28} />
-        )}
+        {number === "01" && <Container size={28} />}
+        {number === "02" && <Container size={28} />}
+        {number === "03" && <Server size={28} />}
+        {number === "04" && <Cloud size={28} />}
+        {number === "05" && <Cloud size={28} />}
 
       </div>
 
